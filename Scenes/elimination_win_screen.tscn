@@ -1,0 +1,57 @@
+[gd_scene load_steps=2 format=3 uid="uid://isx58gnykafa"]
+
+[ext_resource type="Script" uid="uid://c6avpil28hjqy" path="res://Scenes/elimination_win_screen.gd" id="1_2vc65"]
+
+[node name="EliminationWinScreen" type="CanvasLayer"]
+script = ExtResource("1_2vc65")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_right = 1268.0
+offset_bottom = 726.0
+
+[node name="TitleLabel" type="Label" parent="Control/Panel"]
+layout_mode = 0
+offset_right = 1281.0
+offset_bottom = 269.0
+theme_override_font_sizes/font_size = 60
+
+[node name="RetryBtn" type="Button" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 456.0
+offset_right = 1204.0
+offset_bottom = 525.0
+theme_override_font_sizes/font_size = 40
+text = "RETRY"
+
+[node name="QuitBtn" type="Button" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 552.0
+offset_right = 1204.0
+offset_bottom = 615.0
+theme_override_font_sizes/font_size = 40
+text = "QUIT"
+
+[node name="MoneyLabel" type="Label" parent="Control/Panel"]
+layout_mode = 0
+offset_top = 137.0
+offset_right = 260.0
+offset_bottom = 179.0
+theme_override_font_sizes/font_size = 20
+
+[node name="RewardLabel" type="Label" parent="Control/Panel"]
+layout_mode = 0
+offset_top = 394.0
+offset_right = 360.0
+offset_bottom = 440.0
+theme_override_font_sizes/font_size = 20
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

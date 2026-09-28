@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=3 uid="uid://cco5jg83si4sc"]
+
+[ext_resource type="Script" uid="uid://syj0jvgf5bbb" path="res://Scenes/lanui.gd" id="1_kq6l4"]
+
+[node name="LANUI" type="CanvasLayer"]
+script = ExtResource("1_kq6l4")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HostButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_right = 324.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 30
+text = "HOST LAN"
+
+[node name="JoinButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_top = 57.0
+offset_right = 325.0
+offset_bottom = 107.0
+theme_override_font_sizes/font_size = 30
+text = "JOIN LAN"
+
+[node name="IPField" type="LineEdit" parent="Control"]
+layout_mode = 0
+offset_top = 130.0
+offset_right = 522.0
+offset_bottom = 180.0
+theme_override_font_sizes/font_size = 30
+placeholder_text = "ENTER IP OF HOST TO JOIN GAME"
+expand_to_text_length = true
+
+[node name="BackButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_top = 652.0
+offset_right = 433.0
+offset_bottom = 706.0
+theme_override_font_sizes/font_size = 30
+text = "BACK"
+
+[node name="StatusLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 817.0
+offset_top = 627.0
+offset_right = 1070.0
+offset_bottom = 650.0
+theme_override_font_sizes/font_size = 30

@@ -1,0 +1,76 @@
+[gd_scene load_steps=2 format=3 uid="uid://dand43c4ytos6"]
+
+[ext_resource type="Script" uid="uid://cpjsl1xfvb5j1" path="res://Scenes/track_select.gd" id="1_4xh1s"]
+
+[node name="TrackSelect" type="CanvasLayer"]
+script = ExtResource("1_4xh1s")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BogotaAirport" type="Button" parent="Control"]
+layout_mode = 0
+offset_right = 1278.0
+offset_bottom = 33.0
+theme_override_font_sizes/font_size = 30
+text = "BOGOTA AIRPORT"
+
+[node name="BackBtn" type="Button" parent="Control"]
+layout_mode = 0
+offset_top = 674.0
+offset_right = 157.0
+offset_bottom = 708.0
+theme_override_font_sizes/font_size = 30
+text = "BACK"
+
+[node name="Chernobyl" type="Button" parent="Control"]
+layout_mode = 0
+offset_top = 67.0
+offset_right = 1263.0
+offset_bottom = 124.0
+theme_override_font_sizes/font_size = 30
+text = "CHERNOBYL UKRAINE"
+
+[node name="AbuDhabi" type="Button" parent="Control"]
+layout_mode = 0
+offset_top = 134.0
+offset_right = 1254.0
+offset_bottom = 186.0
+theme_override_font_sizes/font_size = 30
+text = "ABU DHABI"
+
+[node name="Split" type="Button" parent="Control"]
+layout_mode = 0
+offset_top = 197.0
+offset_right = 1247.0
+offset_bottom = 247.0
+theme_override_font_sizes/font_size = 30
+text = "SPLIT CROATIA"
+
+[node name="NewYork" type="Button" parent="Control"]
+layout_mode = 0
+offset_top = 264.0
+offset_right = 1250.0
+offset_bottom = 314.0
+theme_override_font_sizes/font_size = 30
+text = "NEW YORK"
+
+[node name="LasVegas" type="Button" parent="Control"]
+layout_mode = 0
+offset_top = 338.0
+offset_right = 1250.0
+offset_bottom = 388.0
+theme_override_font_sizes/font_size = 30
+text = "LAS VEGAS
+"
+
+[connection signal="pressed" from="Control/BogotaAirport" to="." method="_on_bogota_airport_pressed"]
+[connection signal="pressed" from="Control/BackBtn" to="." method="_on_back_btn_pressed"]
+[connection signal="pressed" from="Control/Chernobyl" to="." method="_on_chernobyl_pressed"]
+[connection signal="pressed" from="Control/AbuDhabi" to="." method="_on_abu_dhabi_pressed"]
+[connection signal="pressed" from="Control/Split" to="." method="_on_split_pressed"]
+[connection signal="pressed" from="Control/NewYork" to="." method="_on_new_york_pressed"]
+[connection signal="pressed" from="Control/LasVegas" to="." method="_on_las_vegas_pressed"]

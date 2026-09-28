@@ -1,0 +1,14 @@
+MeshInstance3D
+Label
+AudioStreamPlayer
+WorldEnvironment
+Node3D
+CollisionShape3D
+StaticBody3D
+Button
+HSlider
+Area3D
+VBoxContainer
+Control
+CanvasLayer
+HBoxContainer

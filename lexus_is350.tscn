@@ -1,0 +1,310 @@
+[gd_scene load_steps=34 format=3 uid="uid://6afpjlmvmm8a"]
+
+[ext_resource type="Script" uid="uid://ffvs8ga7wgmd" path="res://Scripts/camera.gd" id="1_ho8r5"]
+[ext_resource type="AudioStream" uid="uid://bq4u8syx73uiv" path="res://SFX/freesound_community-audi-v8-acceleration-sound-6067.wav" id="2_ho8r5"]
+[ext_resource type="AudioStream" uid="uid://cbyhxjdmmxqg3" path="res://SFX/brake.mp3" id="3_ns81l"]
+[ext_resource type="AudioStream" uid="uid://dkqrbnoypkxrd" path="res://SFX/skid.mp3" id="4_2wl0a"]
+
+[sub_resource type="GDScript" id="GDScript_1ia5j"]
+script/source = "extends AI_Car
+
+# COSMETIC INFO (UI only)
+var car_name := \"Kuro Zephyr V6\"
+var country := \"Japan\"
+var engine := \"V6 3.5L\"
+var weight_kg := 1600
+var zero_to_hundred_display := 5.60  # RWD launch makes it slightly quicker than the ES350
+
+func _ready():
+	# GAMEPLAY STATS
+	mass = 1600.0
+	horsepower = 306            # Upgraded from 272 (IS350's direct-injection V6 has more punch)
+	max_rpm = 6600.0            # High-revving 2GR-FSE engine
+	zero_to_hundred = 5.6
+	top_speed_kmh = 250         # Stays at the 242 ceiling, but gets there much faster
+	turn_speed = 2.65           # Noticeably sharper than the ES350; RWD lets the front wheels focus purely on steering
+	brake_strength = 12.5       # Sport brakes offer stronger stopping power
+	lateral_friction = 1.10     # High cornering grip, but RWD means the rear will break loose under heavy throttle
+	transmission = \"Rear wheel drive\" # Changed from Front wheel drive
+
+	# IS350-style handling (Sharp, agile, athletic, prone to power-slides if pushed too hard)
+	handling_type = \"balanced\"
+
+	# Toyota/Lexus 2GR-FSE 6-Speed Sport Gearing (Tighter ratios to maximize the higher 306 hp power band)
+	gear_count = 6
+	gear_ratios = [
+		3.62,  # 1st - Aggressive RWD launch torque
+		2.19,  # 2nd - Snappy acceleration out of tight corners
+		1.54,  # 3rd
+		1.21,  # 4th
+		1.00,  # 5th
+		0.77   # 6th - Overdrive highway cruise
+	]
+	shift_up_rpm = 6400        # Sports V6 pulls harder up into the rev range
+	shift_down_rpm = 2800
+
+	apply_stats()
+	print(\"Child READY loaded:\", car_name)
+"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_08euy"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_nfu50"]
+top_radius = 0.15
+bottom_radius = 0.15
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p16f5"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_b4kkp"]
+size = Vector3(0.8, 0.2, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j171l"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rmeoq"]
+size = Vector3(0.1, 0.18, 0.3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kceoh"]
+albedo_color = Color(1, 0.752941, 0, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_op76e"]
+left_to_right = 0.1
+size = Vector3(0.2, 0.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8lu5v"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bb72w"]
+size = Vector3(0.5, 0.1, 0.1)
+subdivide_width = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7avg5"]
+albedo_color = Color(0.752941, 0, 0.2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0cpdq"]
+size = Vector3(0.25, 0.07, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lrhpf"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kqt6i"]
+size = Vector3(0.8, 0.3, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uwb4v"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_q4xfq"]
+size = Vector3(0.8, 0.1, 0.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b5b1h"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_wromi"]
+size = Vector3(0.1, 0.4, 0.7)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gu0u7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7iopj"]
+size = Vector3(0.8, 0.25, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kjpq4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kuo4o"]
+size = Vector3(0.8, 0.05, 0.7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_08euy"]
+size = Vector3(1, 1, 1.7)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v0kf0"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_08euy"]
+offsets = PackedFloat32Array(0, 0.542553, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.766792, 0.989237, 1, 1, 0, 0, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nfu50"]
+gradient = SubResource("Gradient_08euy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sibdw"]
+spread = 10.0
+initial_velocity_min = 3.0
+initial_velocity_max = 5.6
+scale_min = 0.25
+scale_max = 0.5
+color = Color(0, 0, 1, 1)
+color_ramp = SubResource("GradientTexture1D_nfu50")
+
+[sub_resource type="QuadMesh" id="QuadMesh_twcfh"]
+size = Vector2(0.5, 0.5)
+
+[node name="LEXUS IS350" type="CharacterBody3D"]
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+script = SubResource("GDScript_1ia5j")
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.179, 2, 8)
+current = true
+fov = 55.0
+script = ExtResource("1_ho8r5")
+target = NodePath("..")
+
+[node name="ModelRoot" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, -0.315375, 0)
+
+[node name="WheelHolder" type="Node3D" parent="ModelRoot"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.203167, -0.15023, 0.711363)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ModelRoot/WheelHolder"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -0.111273, 0.378236, -0.0744089)
+material_override = SubResource("StandardMaterial3D_08euy")
+mesh = SubResource("CylinderMesh_nfu50")
+
+[node name="WheelHolder2" type="Node3D" parent="ModelRoot"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.319449, -0.31166, 0.718523)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ModelRoot/WheelHolder2"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -0.0359358, 0.480537, -0.0825855)
+material_override = SubResource("StandardMaterial3D_08euy")
+mesh = SubResource("CylinderMesh_nfu50")
+
+[node name="WheelHolder3" type="Node3D" parent="ModelRoot"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.489292, -0.192986, 0.295571)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ModelRoot/WheelHolder3"]
+transform = Transform3D(0.0153757, 0.999882, 4.37062e-08, 0, -4.37114e-08, 1, 0.999882, -0.0153757, -6.72093e-10, 0.173218, 0.367955, 0.565086)
+material_override = SubResource("StandardMaterial3D_08euy")
+mesh = SubResource("CylinderMesh_nfu50")
+
+[node name="WheelHolder4" type="Node3D" parent="ModelRoot"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.132687, -0.269031, -0.173557)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ModelRoot/WheelHolder4"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0.154448, 0.453203, -0.0271415)
+material_override = SubResource("StandardMaterial3D_08euy")
+mesh = SubResource("CylinderMesh_nfu50")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="ModelRoot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0420773, 0.603147, -0.274145)
+material_override = SubResource("StandardMaterial3D_p16f5")
+mesh = SubResource("BoxMesh_b4kkp")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="ModelRoot"]
+transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, -7.61375e-08, 0.603147, 0.504235)
+material_override = SubResource("StandardMaterial3D_p16f5")
+mesh = SubResource("BoxMesh_b4kkp")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="ModelRoot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.329322, 0.593983, 0.30087)
+material_override = SubResource("StandardMaterial3D_j171l")
+mesh = SubResource("BoxMesh_rmeoq")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="ModelRoot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.329322, 0.593983, -0.0914251)
+material_override = SubResource("StandardMaterial3D_j171l")
+mesh = SubResource("BoxMesh_rmeoq")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="ModelRoot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.387473, 0.593983, -0.0579049)
+material_override = SubResource("StandardMaterial3D_j171l")
+mesh = SubResource("BoxMesh_rmeoq")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="ModelRoot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.387506, 0.593983, 0.282994)
+material_override = SubResource("StandardMaterial3D_j171l")
+mesh = SubResource("BoxMesh_rmeoq")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="ModelRoot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28824, 0.40001, 1.09959)
+material_override = SubResource("StandardMaterial3D_kceoh")
+mesh = SubResource("PrismMesh_op76e")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="ModelRoot"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.337807, 0.40001, 1.08538)
+material_override = SubResource("StandardMaterial3D_kceoh")
+mesh = SubResource("PrismMesh_op76e")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="ModelRoot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.63147e-07, 0.382313, 1.08048)
+material_override = SubResource("StandardMaterial3D_8lu5v")
+mesh = SubResource("BoxMesh_bb72w")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="ModelRoot"]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -0.19386, 0.504888, -0.414671)
+material_override = SubResource("StandardMaterial3D_7avg5")
+mesh = SubResource("BoxMesh_0cpdq")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="ModelRoot"]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 0.319009, 0.504025, -0.414914)
+material_override = SubResource("StandardMaterial3D_7avg5")
+mesh = SubResource("BoxMesh_0cpdq")
+
+[node name="Body" type="Node3D" parent="ModelRoot"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ModelRoot/Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52442e-07, 0.269554, 1.00957)
+material_override = SubResource("StandardMaterial3D_lrhpf")
+mesh = SubResource("BoxMesh_kqt6i")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="ModelRoot/Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.14325e-07, 0.44047, 0.757141)
+material_override = SubResource("StandardMaterial3D_uwb4v")
+mesh = SubResource("BoxMesh_q4xfq")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="ModelRoot/Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.374725, 0.517764, 0.122005)
+material_override = SubResource("StandardMaterial3D_b5b1h")
+mesh = SubResource("BoxMesh_wromi")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="ModelRoot/Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.327229, 0.517764, 0.0833603)
+material_override = SubResource("StandardMaterial3D_b5b1h")
+mesh = SubResource("BoxMesh_wromi")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="ModelRoot/Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0565882, 0.416204, -0.318499)
+material_override = SubResource("StandardMaterial3D_gu0u7")
+mesh = SubResource("BoxMesh_7iopj")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="ModelRoot/Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5362e-08, 0.749632, 0.101738)
+material_override = SubResource("StandardMaterial3D_kjpq4")
+mesh = SubResource("BoxMesh_kuo4o")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0383226, 0.144474, -0.156084)
+shape = SubResource("BoxShape3D_08euy")
+
+[node name="ForwardRef" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00341237, 0.00285846, -0.00810623)
+
+[node name="Exhaust" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.142345, -0.236664, 0.501985)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Exhaust"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.195621, 0.142489, 0.277716)
+material_override = SubResource("StandardMaterial3D_v0kf0")
+amount = 50
+lifetime = 0.25
+preprocess = 0.1
+explosiveness = 0.2
+process_material = SubResource("ParticleProcessMaterial_sibdw")
+draw_pass_1 = SubResource("QuadMesh_twcfh")
+
+[node name="RevPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_ho8r5")
+max_polyphony = 4
+
+[node name="BrakePlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_ns81l")
+
+[node name="CrashPlayer" type="AudioStreamPlayer3D" parent="."]
+
+[node name="SkidPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_2wl0a")

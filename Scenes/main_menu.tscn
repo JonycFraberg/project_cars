@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://blwywdnqsnjx6"]
+
+[ext_resource type="Script" uid="uid://dwrxifbaa3ou3" path="res://Scenes/main_menu.gd" id="1_28flt"]
+[ext_resource type="PackedScene" uid="uid://cco5jg83si4sc" path="res://Scenes/lanui.tscn" id="2_48xlc"]
+
+[node name="MainMenu" type="CanvasLayer" unique_id=286727699]
+script = ExtResource("1_28flt")
+
+[node name="Control" type="Control" parent="." unique_id=2108890548]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=597756838]
+layout_mode = 0
+offset_right = 1276.0
+offset_bottom = 77.0
+
+[node name="RoadChallenge" type="Button" parent="Control/VBoxContainer" unique_id=1906061860]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "ROAD CHALLENGE"
+
+[node name="FreeRace" type="Button" parent="Control/VBoxContainer" unique_id=1890263344]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "FREE RACE"
+
+[node name="ClubCups" type="Button" parent="Control/VBoxContainer" unique_id=1074362543]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "CAREER MODE"
+
+[node name="MultiDevice" type="Button" parent="Control/VBoxContainer" unique_id=900707372]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "MULTI-DEVICE PLAY "
+
+[node name="LanguageMenu" type="Button" parent="Control/VBoxContainer" unique_id=747464673]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "LANGUAGE OPTIONS"
+
+[node name="VolUp" type="Button" parent="Control" unique_id=856644910]
+layout_mode = 0
+offset_top = 358.0
+offset_right = 166.0
+offset_bottom = 411.0
+theme_override_font_sizes/font_size = 30
+text = "+"
+
+[node name="VolDown" type="Button" parent="Control" unique_id=1016824941]
+layout_mode = 0
+offset_left = 193.0
+offset_top = 358.0
+offset_right = 356.0
+offset_bottom = 411.0
+theme_override_font_sizes/font_size = 30
+text = "-"
+
+[node name="VolumeLabel" type="Label" parent="Control" unique_id=227352845]
+layout_mode = 0
+offset_top = 528.0
+offset_right = 327.0
+offset_bottom = 563.0
+
+[node name="LANUI" parent="." unique_id=1879785271 instance=ExtResource("2_48xlc")]
+
+[connection signal="pressed" from="Control/VBoxContainer/RoadChallenge" to="." method="_on_road_challenge_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/FreeRace" to="." method="_on_free_race_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/ClubCups" to="." method="_on_club_cups_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/MultiDevice" to="." method="_on_multi_device_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/LanguageMenu" to="." method="_on_language_menu_pressed"]
+[connection signal="pressed" from="Control/VolUp" to="." method="_on_vol_up_pressed"]
+[connection signal="pressed" from="Control/VolDown" to="." method="_on_vol_down_pressed"]

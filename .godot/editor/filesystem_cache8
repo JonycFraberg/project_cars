@@ -1,0 +1,16 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1778408031
+main.tscn::PackedScene::6405392885157970654::1778407669::0::1::::<><>::uid://b0rspyplkxvyp::::res://Tracks/track.tscn<>uid://cheb8gigcqn45::::res://Scenes/abarth_500.tscn
+::res://Cars/::1778407948
+abarth_500.glb::PackedScene::8737301476572326681::1778341086::1778407948::1::::<><>::
+::res://Scenes/::1778407669
+abarth_500.tscn::PackedScene::5272540759834762252::1778407669::0::1::::<><>::
+::res://Scripts/::1778407669
+car_controller.gd::GDScript::-1::1778407669::0::1::::<>VehicleBody3D<>::
+::res://SFX/::1777735652
+brake.mp3::AudioStreamMP3::4893041847237595360::1777636221::1777735652::1::::<><>::
+crash.mp3::AudioStreamMP3::5855399304817107656::1777570214::1777735652::1::::<><>::
+rev.mp3::AudioStreamMP3::6252064369620662412::1777570106::1777735652::1::::<><>::
+skid.mp3::AudioStreamMP3::7895215211737247329::1777570083::1777735652::1::::<><>::
+::res://Tracks/::1778407669
+track.tscn::PackedScene::4177357173487848459::1778407669::0::1::::<><>::

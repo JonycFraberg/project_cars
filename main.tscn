@@ -1,0 +1,42 @@
+[gd_scene load_steps=12 format=3 uid="uid://cxi25dbhhlmu5"]
+
+[ext_resource type="Script" uid="uid://cpx63o2nbliu2" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://isx58gnykafa" path="res://Scenes/elimination_win_screen.tscn" id="2_efxa6"]
+[ext_resource type="PackedScene" uid="uid://bhj15vaqmgc72" path="res://Scenes/speedometer.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bcyixis8g5mmn" path="res://Scenes/HUD.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://dlqpj56x5stsh" path="res://Scenes/FinishFlash.tscn" id="5_5vw27"]
+[ext_resource type="PackedScene" uid="uid://dqgnkspdapku1" path="res://Scenes/leaderboard.tscn" id="5_272bh"]
+[ext_resource type="PackedScene" uid="uid://cxccrd6erx7dd" path="res://Scenes/start.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://i1qia1imspm7" path="res://Scenes/pause_menu.tscn" id="9_kek77"]
+[ext_resource type="PackedScene" uid="uid://nros2y8elyhn" path="res://Scenes/elimination_hud.tscn" id="11_dg77c"]
+[ext_resource type="PackedScene" uid="uid://cco5jg83si4sc" path="res://Scenes/lanui.tscn" id="11_efxa6"]
+[ext_resource type="PackedScene" uid="uid://ckv60g7lnahi2" path="res://Scenes/cop_chase_hud.tscn" id="12_dg77c"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_h2yge")
+
+[node name="EliminationWinScreen" parent="." instance=ExtResource("2_efxa6")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 1.94095)
+
+[node name="Speedometer" parent="." instance=ExtResource("3_h2yge")]
+
+[node name="RoadDirection" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1914.05)
+
+[node name="FinishFlash" parent="." instance=ExtResource("5_5vw27")]
+
+[node name="Leaderboard" parent="." instance=ExtResource("5_272bh")]
+
+[node name="HUD" parent="." instance=ExtResource("4_1bvp3")]
+
+[node name="Start" parent="." instance=ExtResource("6_7mycd")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("9_kek77")]
+
+[node name="EliminationHud" parent="." instance=ExtResource("11_dg77c")]
+
+[node name="CopChaseHud" parent="." instance=ExtResource("12_dg77c")]
+
+[node name="LANUI" parent="." instance=ExtResource("11_efxa6")]

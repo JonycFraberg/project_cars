@@ -1,0 +1,330 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3nevfhxlkrec"]
+
+[ext_resource type="Script" uid="uid://bqdrqyuuwy61y" path="res://Scripts/car_select.gd" id="1_74av0"]
+[ext_resource type="Script" uid="uid://h13g0sj0tkdf" path="res://Scripts/AutoRotate.gd" id="2_2dip6"]
+
+[node name="CarSelect" type="CanvasLayer"]
+script = ExtResource("1_74av0")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ClassList" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_right = 241.0
+offset_bottom = 374.0
+
+[node name="SUV" type="Button" parent="Control/ClassList"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "4x4 SUV"
+
+[node name="MuscleCars" type="Button" parent="Control/ClassList"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Muscle Cars"
+
+[node name="CompactCars" type="Button" parent="Control/ClassList"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Compact Cars"
+
+[node name="Sedans" type="Button" parent="Control/ClassList"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Executive Cars"
+
+[node name="UrbanRacers" type="Button" parent="Control/ClassList"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Urban Performance Cars"
+
+[node name="SportCoupe" type="Button" parent="Control/ClassList"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Sport Coupe"
+
+[node name="SportRacing" type="Button" parent="Control/ClassList"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Sport Racing"
+
+[node name="Supercars" type="Button" parent="Control/ClassList"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Supercars"
+
+[node name="TrackCars" type="Button" parent="Control/ClassList"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Track Cars"
+
+[node name="Cars" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 492.0
+offset_right = 366.0
+offset_bottom = 549.0
+
+[node name="CarName" type="Label" parent="Control/Cars"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+
+[node name="CarStats" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 503.0
+offset_top = 221.0
+offset_right = 780.0
+offset_bottom = 532.0
+
+[node name="PPLabel" type="Label" parent="Control/CarStats"]
+layout_mode = 2
+
+[node name="CountryLabel" type="Label" parent="Control/CarStats"]
+layout_mode = 2
+
+[node name="HPLabel" type="Label" parent="Control/CarStats"]
+layout_mode = 2
+
+[node name="WeightLabel" type="Label" parent="Control/CarStats"]
+layout_mode = 2
+
+[node name="ZeroToHundredLabel" type="Label" parent="Control/CarStats"]
+layout_mode = 2
+
+[node name="EngineLabel" type="Label" parent="Control/CarStats"]
+layout_mode = 2
+
+[node name="TransmissionLabel" type="Label" parent="Control/CarStats"]
+layout_mode = 2
+
+[node name="TopSpeedLabel" type="Label" parent="Control/CarStats"]
+layout_mode = 2
+
+[node name="AspirationLabel" type="Label" parent="Control/CarStats"]
+layout_mode = 2
+
+[node name="TorqueLabel" type="Label" parent="Control/CarStats"]
+layout_mode = 2
+
+[node name="PriceLabel" type="Label" parent="Control/CarStats"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+
+[node name="ColorSelector" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 713.0
+offset_top = 14.0
+offset_right = 766.0
+offset_bottom = 162.0
+
+[node name="ColorBox1" type="ColorRect" parent="Control/ColorSelector"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+
+[node name="ColorBox2" type="ColorRect" parent="Control/ColorSelector"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+
+[node name="ColorBox3" type="ColorRect" parent="Control/ColorSelector"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+
+[node name="ColorBox4" type="ColorRect" parent="Control/ColorSelector"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_top = 667.0
+offset_right = 302.0
+offset_bottom = 716.0
+theme_override_font_sizes/font_size = 20
+
+[node name="UpgradesButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 473.0
+offset_top = 507.0
+offset_right = 1161.0
+offset_bottom = 559.0
+theme_override_font_sizes/font_size = 30
+text = "UPGRADES"
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.55
+anchor_top = 0.12
+anchor_right = 0.98
+anchor_bottom = 0.5
+offset_left = 81.0
+offset_top = -0.400002
+offset_right = 30.6
+offset_bottom = 76.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(500, 350)
+render_target_update_mode = 4
+
+[node name="CarPreview" type="Node3D" parent="SubViewportContainer/SubViewport"]
+
+[node name="PreviewCamera" type="Camera3D" parent="SubViewportContainer/SubViewport/CarPreview"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.485364, 0)
+current = true
+fov = 45.0
+
+[node name="CarHolder" type="Node3D" parent="SubViewportContainer/SubViewport/CarPreview"]
+script = ExtResource("2_2dip6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
+
+[node name="Select" type="Button" parent="."]
+offset_left = 404.0
+offset_top = 639.0
+offset_right = 1141.0
+offset_bottom = 699.0
+theme_override_font_sizes/font_size = 30
+text = "SELECT CAR
+"
+
+[node name="BackBtn" type="Button" parent="."]
+offset_top = 601.0
+offset_right = 253.0
+offset_bottom = 664.0
+theme_override_font_sizes/font_size = 40
+text = "BACK"
+
+[node name="UpgradeMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UpgradeMenu"]
+layout_mode = 0
+offset_right = 575.0
+offset_bottom = 212.0
+
+[node name="WeightReduction" type="HBoxContainer" parent="UpgradeMenu/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UpgradeMenu/VBoxContainer/WeightReduction"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "WEIGHT REDUCTION"
+
+[node name="Stage" type="Label" parent="UpgradeMenu/VBoxContainer/WeightReduction"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Stage: 1"
+
+[node name="Price" type="Label" parent="UpgradeMenu/VBoxContainer/WeightReduction"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "$4000"
+
+[node name="BuyBtn3" type="Button" parent="UpgradeMenu/VBoxContainer/WeightReduction"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "BUY"
+
+[node name="EngineTune" type="HBoxContainer" parent="UpgradeMenu/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UpgradeMenu/VBoxContainer/EngineTune"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "ENGINE TUNE"
+
+[node name="Stage" type="Label" parent="UpgradeMenu/VBoxContainer/EngineTune"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Stage: 1"
+
+[node name="Price" type="Label" parent="UpgradeMenu/VBoxContainer/EngineTune"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "$4000"
+
+[node name="BuyBtn2" type="Button" parent="UpgradeMenu/VBoxContainer/EngineTune"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "BUY"
+
+[node name="Steering" type="HBoxContainer" parent="UpgradeMenu/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UpgradeMenu/VBoxContainer/Steering"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "STEERING"
+
+[node name="Stage" type="Label" parent="UpgradeMenu/VBoxContainer/Steering"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Stage: 1"
+
+[node name="Price" type="Label" parent="UpgradeMenu/VBoxContainer/Steering"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "$4000"
+
+[node name="BuyBtn" type="Button" parent="UpgradeMenu/VBoxContainer/Steering"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "BUY"
+
+[node name="Brakes" type="HBoxContainer" parent="UpgradeMenu/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UpgradeMenu/VBoxContainer/Brakes"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "BRAKE"
+
+[node name="Stage" type="Label" parent="UpgradeMenu/VBoxContainer/Brakes"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Stage: 1"
+
+[node name="Price" type="Label" parent="UpgradeMenu/VBoxContainer/Brakes"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "$4000"
+
+[node name="BuyBtn4" type="Button" parent="UpgradeMenu/VBoxContainer/Brakes"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "BUY"
+
+[node name="CarLabel" type="Label" parent="UpgradeMenu/VBoxContainer"]
+layout_mode = 2
+
+[node name="MoneyLabel" type="Label" parent="."]
+visible = false
+offset_left = 900.0
+offset_top = 553.0
+offset_right = 1252.0
+offset_bottom = 614.0
+
+[connection signal="pressed" from="Control/ClassList/SUV" to="." method="_on_4x4suv_pressed"]
+[connection signal="pressed" from="Control/ClassList/MuscleCars" to="." method="_on_muscle_cars_pressed"]
+[connection signal="pressed" from="Control/ClassList/CompactCars" to="." method="_on_compact_cars_pressed"]
+[connection signal="pressed" from="Control/ClassList/Sedans" to="." method="_on_sedans_pressed"]
+[connection signal="pressed" from="Control/ClassList/UrbanRacers" to="." method="_on_urban_racers_pressed"]
+[connection signal="pressed" from="Control/ClassList/SportCoupe" to="." method="_on_sport_coupe_pressed"]
+[connection signal="pressed" from="Control/ClassList/SportRacing" to="." method="_on_sport_racing_pressed"]
+[connection signal="pressed" from="Control/ClassList/Supercars" to="." method="_on_supercars_pressed"]
+[connection signal="pressed" from="Control/ClassList/TrackCars" to="." method="_on_track_cars_pressed"]
+[connection signal="pressed" from="Control/UpgradesButton" to="." method="_on_upgrades_pressed"]
+[connection signal="pressed" from="Select" to="." method="_on_select_pressed"]
+[connection signal="pressed" from="BackBtn" to="." method="_on_back_btn_pressed"]
+[connection signal="pressed" from="UpgradeMenu/VBoxContainer/WeightReduction/BuyBtn3" to="." method="_on_buy_btn_3_pressed"]
+[connection signal="pressed" from="UpgradeMenu/VBoxContainer/EngineTune/BuyBtn2" to="." method="_on_buy_btn_2_pressed"]
+[connection signal="pressed" from="UpgradeMenu/VBoxContainer/Steering/BuyBtn" to="." method="_on_buy_btn_pressed"]
+[connection signal="pressed" from="UpgradeMenu/VBoxContainer/Brakes/BuyBtn4" to="." method="_on_buy_btn_4_pressed"]

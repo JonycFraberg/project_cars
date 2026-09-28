@@ -1,0 +1,106 @@
+[gd_scene load_steps=2 format=3 uid="uid://cehe780myc8ed"]
+
+[ext_resource type="Script" uid="uid://cj2cjcg724xul" path="res://Scripts/mode_select.gd" id="1_qw3jj"]
+
+[node name="ModeSelect" type="CanvasLayer"]
+script = ExtResource("1_qw3jj")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RadarRaceBtn" type="Button" parent="Control"]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 1239.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 40
+text = "RADAR RACE
+"
+
+[node name="DuelBtn" type="Button" parent="Control"]
+layout_mode = 0
+offset_top = 70.0
+offset_right = 1244.0
+offset_bottom = 133.0
+theme_override_font_sizes/font_size = 40
+text = "DUEL"
+
+[node name="NormalRaceBtn" type="Button" parent="Control"]
+layout_mode = 0
+offset_top = 157.0
+offset_right = 1251.0
+offset_bottom = 205.0
+theme_override_font_sizes/font_size = 40
+text = "NORMAL RACE"
+
+[node name="BackBtn" type="Button" parent="Control"]
+layout_mode = 0
+offset_top = 620.0
+offset_right = 259.0
+offset_bottom = 699.0
+theme_override_font_sizes/font_size = 40
+text = "BACK"
+
+[node name="EliminationBtn" type="Button" parent="Control"]
+layout_mode = 0
+offset_top = 230.0
+offset_right = 1247.0
+offset_bottom = 293.0
+theme_override_font_sizes/font_size = 40
+text = "ELIMINATION"
+
+[node name="CopChaseBtn" type="Button" parent="Control"]
+layout_mode = 0
+offset_top = 308.0
+offset_right = 1246.0
+offset_bottom = 361.0
+theme_override_font_sizes/font_size = 40
+text = "COP CHASE"
+
+[node name="RadarTrophy" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 887.0
+offset_right = 1015.0
+offset_bottom = 62.0
+theme_override_font_sizes/font_size = 30
+
+[node name="DuelTrophy" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 887.0
+offset_top = 73.0
+offset_right = 1008.0
+offset_bottom = 132.0
+theme_override_font_sizes/font_size = 30
+
+[node name="NormalRaceTrophy" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 887.0
+offset_top = 159.0
+offset_right = 1024.0
+offset_bottom = 222.0
+theme_override_font_sizes/font_size = 30
+
+[node name="EliminationTrophy" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 887.0
+offset_top = 234.0
+offset_right = 1024.0
+offset_bottom = 295.0
+theme_override_font_sizes/font_size = 30
+
+[node name="ClaimLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_top = 474.0
+offset_right = 762.0
+offset_bottom = 541.0
+theme_override_font_sizes/font_size = 30
+
+[connection signal="pressed" from="Control/RadarRaceBtn" to="." method="_on_radar_race_btn_pressed"]
+[connection signal="pressed" from="Control/DuelBtn" to="." method="_on_duel_btn_pressed"]
+[connection signal="pressed" from="Control/NormalRaceBtn" to="." method="_on_normal_race_btn_pressed"]
+[connection signal="pressed" from="Control/BackBtn" to="." method="_on_back_btn_pressed"]
+[connection signal="pressed" from="Control/EliminationBtn" to="." method="_on_elimination_btn_pressed"]
+[connection signal="pressed" from="Control/CopChaseBtn" to="." method="_on_cop_chase_btn_pressed"]

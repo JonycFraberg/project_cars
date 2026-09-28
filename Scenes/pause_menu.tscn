@@ -1,0 +1,89 @@
+[gd_scene load_steps=2 format=3 uid="uid://i1qia1imspm7"]
+
+[ext_resource type="Script" uid="uid://btaivfg24m3hr" path="res://Scenes/pause_menu.gd" id="1_emv3i"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+script = ExtResource("1_emv3i")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_right = 1283.0
+offset_bottom = 718.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel"]
+layout_mode = 0
+offset_top = 20.0
+offset_right = 1238.0
+offset_bottom = 70.0
+
+[node name="ResumeBtn" type="Button" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "RESUME"
+
+[node name="RetryBtn" type="Button" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "RETRY"
+
+[node name="QuitBtn" type="Button" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "QUIT"
+
+[node name="VolUpBtn" type="Button" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 207.0
+offset_right = 174.0
+offset_bottom = 287.0
+theme_override_font_sizes/font_size = 40
+text = "+"
+
+[node name="VolDownBtn" type="Button" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 209.0
+offset_top = 211.0
+offset_right = 305.0
+offset_bottom = 291.0
+theme_override_font_sizes/font_size = 40
+text = "-"
+
+[node name="VolumeLabel" type="Label" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 387.0
+offset_top = 204.0
+offset_right = 1220.0
+offset_bottom = 284.0
+theme_override_font_sizes/font_size = 35
+
+[node name="KMHBtn" type="Button" parent="Control/Panel"]
+layout_mode = 0
+offset_top = 349.0
+offset_right = 164.0
+offset_bottom = 390.0
+theme_override_font_sizes/font_size = 30
+text = "KM/H"
+
+[node name="MPHBtn" type="Button" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 215.0
+offset_top = 349.0
+offset_right = 373.0
+offset_bottom = 399.0
+theme_override_font_sizes/font_size = 30
+text = "MPH"
+
+[connection signal="pressed" from="Control/Panel/VBoxContainer/ResumeBtn" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="Control/Panel/VBoxContainer/RetryBtn" to="." method="_on_retry_btn_pressed"]
+[connection signal="pressed" from="Control/Panel/VBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="Control/Panel/VolUpBtn" to="." method="_on_vol_up_btn_pressed"]
+[connection signal="pressed" from="Control/Panel/VolDownBtn" to="." method="_on_vol_down_btn_pressed"]
+[connection signal="pressed" from="Control/Panel/KMHBtn" to="." method="_on_kmh_btn_pressed"]
+[connection signal="pressed" from="Control/Panel/MPHBtn" to="." method="_on_mph_btn_pressed"]

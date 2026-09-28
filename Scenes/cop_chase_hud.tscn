@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckv60g7lnahi2"]
+
+[ext_resource type="Script" uid="uid://b3kljhgd5qodk" path="res://Scenes/cop_chase_hud.gd" id="1_48o4k"]
+[ext_resource type="Script" uid="uid://2ifcw57gbncp" path="res://Scenes/crosshair_draw.gd" id="2_3elaq"]
+
+[node name="CopChaseHud" type="CanvasLayer"]
+script = ExtResource("1_48o4k")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="EMPLockLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_top = 142.0
+offset_right = 285.0
+offset_bottom = 225.0
+theme_override_font_sizes/font_size = 32
+
+[node name="CrosshairDraw" type="Node2D" parent="Control"]
+script = ExtResource("2_3elaq")
+
+[node name="TimerLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_top = 633.0
+offset_right = 272.0
+offset_bottom = 721.0
+theme_override_font_sizes/font_size = 30
+
+[node name="CapturedLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 883.0
+offset_top = 606.0
+offset_right = 1266.0
+offset_bottom = 700.0
+theme_override_font_sizes/font_size = 30
+
+[node name="TimeLeftLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 1017.0
+offset_right = 1280.0
+offset_bottom = 266.0
+theme_override_font_sizes/font_size = 40

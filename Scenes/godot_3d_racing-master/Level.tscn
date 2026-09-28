@@ -1,0 +1,169 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Platform.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Platform2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Barrel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Camera.gd" type="Script" id=4]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Checkpoints.gd" type="Script" id=6]
+[ext_resource path="res://Lap_Time.gd" type="Script" id=7]
+[ext_resource path="res://Engine.gd" type="Script" id=8]
+[ext_resource path="res://Squeal.gd" type="Script" id=9]
+[ext_resource path="res://hit.ogg" type="AudioStream" id=10]
+
+[sub_resource type="BoxShape" id=1]
+
+
+[node name="Level" type="Spatial"]
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.0761717, 0.556116, -0.827607, -0.0509686, 0.831105, 0.553775, 0.995791, -3.70961e-09, 0.0916511, -19.766, 9.27691, 0 )
+light_energy = 0.7
+shadow_enabled = true
+
+[node name="Floor" parent="." instance=ExtResource( 1 )]
+editor/display_folded = true
+transform = Transform( 45, 0, 0, 0, 1, 0, 0, 0, 70, 0, 0, 0 )
+
+[node name="Walls" type="Spatial" parent="Floor"]
+transform = Transform( 0.0222222, 0, 0, 0, 1, 0, 0, 0, 0.0142857, 0, 0, 0 )
+
+[node name="Wall1" parent="Floor/Walls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 70, 44.4521, 0, 0 )
+
+[node name="Wall2" parent="Floor/Walls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 70, -44.0317, 0, 0 )
+
+[node name="Wall3" parent="Floor/Walls" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 45, 0, 1, 0, -1, 0, -1.96701e-06, 0.164816, 0, 70.0958 )
+
+[node name="Wall5" parent="Floor/Walls" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 30, 0, 1, 0, -1, 0, -1.31134e-06, 0.164816, 0, -23.2173 )
+
+[node name="Wall6" parent="Floor/Walls" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 30, 0, 1, 0, -1, 0, -1.31134e-06, 0.164816, 0, 26.8252 )
+
+[node name="Wall7" parent="Floor/Walls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 40, 29.0947, 0, 15.5696 )
+
+[node name="Wall8" parent="Floor/Walls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 40, -29.2134, 0, 15.5696 )
+
+[node name="Wall9" parent="Floor/Walls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 10, -2.6905, 0, 59.8661 )
+
+[node name="Spatial" type="Spatial" parent="Floor"]
+editor/display_folded = true
+transform = Transform( 0.0222222, 0, 0, 0, 1, 0, 0, 0, 0.0142857, 0.968622, 0, 0 )
+
+[node name="Barrel" parent="Floor/Spatial" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.98427 )
+
+[node name="Barrel2" parent="Floor/Spatial" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.17149 )
+
+[node name="Barrel3" parent="Floor/Spatial" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1325, 0, 6.17149 )
+
+[node name="Barrel4" parent="Floor/Spatial" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1325, 0, 4.02033 )
+
+[node name="Barrel5" parent="Floor/Spatial" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99999, 2, 6.25001 )
+
+[node name="Spatial2" type="Spatial" parent="Floor"]
+editor/display_folded = true
+transform = Transform( 0.0222222, 0, 0, 0, 1, 0, 0, 0, 0.0142857, 0.610438, 0, 0 )
+
+[node name="Barrel" parent="Floor/Spatial2" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.98427 )
+
+[node name="Barrel2" parent="Floor/Spatial2" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.17149 )
+
+[node name="Barrel3" parent="Floor/Spatial2" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1325, 0, 6.17149 )
+
+[node name="Barrel4" parent="Floor/Spatial2" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1325, 0, 4.02033 )
+
+[node name="Barrel5" parent="Floor/Spatial2" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99999, 2, 6.25001 )
+
+[node name="Ramp" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 0.0962251, 0.0111111, 0, -2.5, 0.866025, 0, 0, 0, 0.0714286, 0, 2.39899, -0.535247 )
+
+[node name="Ramp2" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 0.0770752, 0.0160064, 0, -3.60143, 0.693676, 0, 0, 0, 0.0714286, 0, 2.39899, -0.784544 )
+
+[node name="Spatial3" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 0.222222, 0, 0, 0, 0.933515, 53.7807, 0, -0.00512197, 2.00039, 0.130176, -53.6248, -2.9935 )
+
+[node name="Spatial4" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 0.144011, -0.00606806, 2.36988, 0, 0.933515, 53.7807, -0.1088, -0.00331928, 1.29635, -2.62764, -53.6248, -2.30188 )
+
+[node name="Spatial5" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 0.00848427, -0.0079617, 3.10945, 0, 0.933515, 53.7807, -0.142753, -0.000195553, 0.0763734, -3.83252, -53.6248, -1.18688 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.5, 0 )
+script = ExtResource( 4 )
+target = NodePath("../../Level/Player")
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40.0365, 1.5, 21.4009 )
+
+[node name="Checkpoints" type="Spatial" parent="."]
+script = ExtResource( 6 )
+
+[node name="Area1" type="Area" parent="Checkpoints"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.9901, 0, 4.96369 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Checkpoints/Area1"]
+transform = Transform( 8, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, -4.43654 )
+shape = SubResource( 1 )
+
+[node name="Area2" type="Area" parent="Checkpoints"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.2216, 0, -6.90841 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Checkpoints/Area2"]
+transform = Transform( 8, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, -4.43654 )
+shape = SubResource( 1 )
+
+[node name="Area3" type="Area" parent="Checkpoints"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.2216, 0, 50.6109 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Checkpoints/Area3"]
+transform = Transform( 8, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, -4.43654 )
+shape = SubResource( 1 )
+
+[node name="Lap_Time" type="Label" parent="."]
+editor/display_folded = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+align = 1
+valign = 1
+script = ExtResource( 7 )
+
+[node name="Timer" type="Timer" parent="Lap_Time"]
+wait_time = 2.0
+one_shot = true
+
+[node name="Engine" type="AudioStreamPlayer" parent="."]
+script = ExtResource( 8 )
+
+[node name="Squeal" type="AudioStreamPlayer" parent="."]
+script = ExtResource( 9 )
+
+[node name="HitWall" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 10 )
+

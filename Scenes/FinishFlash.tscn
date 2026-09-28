@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlqpj56x5stsh"]
+
+[ext_resource type="Script" uid="uid://bj6wuiw5jwcmq" path="res://Scripts/finish_flash.gd" id="1_634yv"]
+
+[node name="FinishFlash" type="CanvasLayer"]
+script = ExtResource("1_634yv")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 96
+text = "FINISH!!!"

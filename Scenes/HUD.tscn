@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcyixis8g5mmn"]
+
+[ext_resource type="Script" uid="uid://0606nw8o7t1d" path="res://Scenes/hud.gd" id="1_sd512"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_sd512")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StopwatchLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_top = 468.0
+offset_right = 296.0
+offset_bottom = 557.0
+theme_override_font_sizes/font_size = 30
+
+[node name="LapLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_top = 642.0
+offset_right = 219.0
+offset_bottom = 714.0
+theme_override_font_sizes/font_size = 30
+
+[node name="PositionLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 393.0
+offset_right = 285.0
+offset_bottom = 489.0
+theme_override_font_sizes/font_size = 70
+
+[node name="RadarTargetLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 1091.0
+offset_top = 212.0
+offset_right = 1279.0
+offset_bottom = 343.0
+theme_override_font_sizes/font_size = 30
